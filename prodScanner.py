@@ -29,7 +29,7 @@ def test_insecure_robots_txt(data_list):
 def execute_command(cmd):
     result = subprocess.Popen(cmd,stdout=subprocess.PIPE,shell=True)     
     try:
-        output, _ = result.communicate(timeout=8)       
+        output, _ = result.communicate(timeout=16)       
         if type(output) == type('string'):
             print('executed command top')
             print(output)
@@ -99,7 +99,7 @@ def scan_target(intensity=0,target='google.com'):
         #scans target retrieving port and application version
         cmd = f"nmap --host-timeout 1m  -sV --version-intensity {intensity} {target}"
         result = execute_command(cmd) #nmap results 
-        if "Note: Host seems down" in result:
+        if "Note: Host seems down" in result or result == None:
             return False
         print(target)
         
@@ -112,7 +112,7 @@ def scan_target(intensity=0,target='google.com'):
     else:
         cmd = f"nmap --host-timeout 1m  -sV --version-intensity {intensity} {target}"
         result = execute_command(cmd) #nmap results 
-        if "Note: Host seems down" in result:
+        if "Note: Host seems down" in result or result == None:
             return False
         test_results = fetch_and_test_robots_txt(url=target,directory=target)
         try:
@@ -124,11 +124,7 @@ def scan_target(intensity=0,target='google.com'):
   
 def init(network='54.242.56.0',cidr=30):     
     iplist = [ip.__str__() for ip in get_ip_range_from_cidr(network,cidr)]  #IP('x.x.x.x') use __str__() method to stringify object
-     
-    # for ip in iplist:
-    #     print(ip)
-    #     scan_target(target=ip)
-
+ 
     count = 0
     while count < len(iplist):
         print(iplist[count])
@@ -136,8 +132,6 @@ def init(network='54.242.56.0',cidr=30):
             iplist.remove(iplist[count])
             continue
         count += 1
-
-
 
 
 
