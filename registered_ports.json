@@ -26,7 +26,7 @@
             "description": "CyberGate RAT protocol",
             "port": "100",
             "status": "Unofficial",
-            "tcp": false,
+            "tcp": false,9
             "udp": true
         },
         "10000": [

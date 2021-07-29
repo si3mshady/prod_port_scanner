@@ -1,0 +1,220 @@
+Starting Nmap 7.91 ( https://nmap.org ) at 2021-07-29 10:08 CDT
+Nmap scan report for ec2-54-242-56-0.compute-1.amazonaws.com (54.242.56.0)
+Host is up (0.040s latency).
+Not shown: 94 filtered ports
+PORT     STATE  SERVICE         VERSION
+22/tcp   closed ssh
+80/tcp   open   http            nginx 1.21.1
+443/tcp  closed https
+3000/tcp closed ppp
+8080/tcp closed http-proxy
+8081/tcp closed blackice-icecap
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 8.51 seconds
+
+	Secure robots.txtStarting Nmap 7.91 ( https://nmap.org ) at 2021-07-29 10:08 CDT
+Nmap scan report for ec2-54-242-56-0.compute-1.amazonaws.com (54.242.56.0)
+Host is up (0.042s latency).
+Not shown: 94 filtered ports
+PORT     STATE  SERVICE         VERSION
+22/tcp   closed ssh
+80/tcp   open   http            nginx 1.21.1
+443/tcp  closed https
+3000/tcp closed ppp
+8080/tcp closed http-proxy
+8081/tcp closed blackice-icecap
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 8.72 seconds
+
+	Secure robots.txtStarting Nmap 7.91 ( https://nmap.org ) at 2021-07-29 10:12 CDT
+Nmap scan report for ec2-54-242-56-0.compute-1.amazonaws.com (54.242.56.0)
+Host is up (0.039s latency).
+Not shown: 94 filtered ports
+PORT     STATE  SERVICE         VERSION
+22/tcp   closed ssh
+80/tcp   open   http            nginx 1.21.1
+443/tcp  closed https
+3000/tcp closed ppp
+8080/tcp closed http-proxy
+8081/tcp closed blackice-icecap
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 8.66 seconds
+
+	Secure robots.txtStarting Nmap 7.91 ( https://nmap.org ) at 2021-07-29 10:14 CDT
+Nmap scan report for ec2-54-242-56-0.compute-1.amazonaws.com (54.242.56.0)
+Host is up (0.043s latency).
+Not shown: 94 filtered ports
+PORT     STATE  SERVICE         VERSION
+22/tcp   closed ssh
+80/tcp   open   http            nginx 1.21.1
+443/tcp  closed https
+3000/tcp closed ppp
+8080/tcp closed http-proxy
+8081/tcp closed blackice-icecap
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 8.43 seconds
+
+	Secure robots.txtStarting Nmap 7.91 ( https://nmap.org ) at 2021-07-29 10:16 CDT
+Nmap scan report for ec2-54-242-56-0.compute-1.amazonaws.com (54.242.56.0)
+Host is up (0.047s latency).
+Not shown: 94 filtered ports
+PORT     STATE  SERVICE         VERSION
+22/tcp   closed ssh
+80/tcp   open   http            nginx 1.21.1
+443/tcp  closed https
+3000/tcp closed ppp
+8080/tcp closed http-proxy
+8081/tcp closed blackice-icecap
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 10.13 seconds
+
+	Secure robots.txtStarting Nmap 7.91 ( https://nmap.org ) at 2021-07-29 10:20 CDT
+Nmap scan report for ec2-54-242-56-0.compute-1.amazonaws.com (54.242.56.0)
+Host is up (0.040s latency).
+Not shown: 94 filtered ports
+PORT     STATE  SERVICE         VERSION
+22/tcp   closed ssh
+80/tcp   open   http            nginx 1.21.1
+443/tcp  closed https
+3000/tcp closed ppp
+8080/tcp closed http-proxy
+8081/tcp closed blackice-icecap
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 9.79 seconds
+
+	Secure robots.txtStarting Nmap 7.91 ( https://nmap.org ) at 2021-07-29 12:37 CDT
+Nmap scan report for ec2-54-242-56-0.compute-1.amazonaws.com (54.242.56.0)
+Host is up (0.041s latency).
+Not shown: 94 filtered ports
+PORT     STATE  SERVICE         VERSION
+22/tcp   closed ssh
+80/tcp   open   http            nginx 1.21.1
+443/tcp  closed https
+3000/tcp closed ppp
+8080/tcp closed http-proxy
+8081/tcp closed blackice-icecap
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 8.55 seconds
+
+	Secure robots.txtStarting Nmap 7.91 ( https://nmap.org ) at 2021-07-29 12:51 CDT
+Nmap scan report for ec2-54-242-56-0.compute-1.amazonaws.com (54.242.56.0)
+Host is up (0.043s latency).
+Not shown: 94 filtered ports
+PORT     STATE  SERVICE         VERSION
+22/tcp   closed ssh
+80/tcp   open   http            nginx 1.21.1
+443/tcp  closed https
+3000/tcp closed ppp
+8080/tcp closed http-proxy
+8081/tcp closed blackice-icecap
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 8.48 seconds
+
+	Secure robots.txtStarting Nmap 7.91 ( https://nmap.org ) at 2021-07-29 12:58 CDT
+Nmap scan report for ec2-54-242-56-0.compute-1.amazonaws.com (54.242.56.0)
+Host is up (0.042s latency).
+Not shown: 94 filtered ports
+PORT     STATE  SERVICE         VERSION
+22/tcp   closed ssh
+80/tcp   open   http            nginx 1.21.1
+443/tcp  closed https
+3000/tcp closed ppp
+8080/tcp closed http-proxy
+8081/tcp closed blackice-icecap
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 8.70 seconds
+Starting Nmap 7.91 ( https://nmap.org ) at 2021-07-29 13:00 CDT
+Nmap scan report for ec2-54-242-56-0.compute-1.amazonaws.com (54.242.56.0)
+Host is up (0.044s latency).
+Not shown: 94 filtered ports
+PORT     STATE  SERVICE         VERSION
+22/tcp   closed ssh
+80/tcp   open   http            nginx 1.21.1
+443/tcp  closed https
+3000/tcp closed ppp
+8080/tcp closed http-proxy
+8081/tcp closed blackice-icecap
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 8.77 seconds
+Starting Nmap 7.91 ( https://nmap.org ) at 2021-07-29 13:02 CDT
+Nmap scan report for ec2-54-242-56-0.compute-1.amazonaws.com (54.242.56.0)
+Host is up (0.043s latency).
+Not shown: 94 filtered ports
+PORT     STATE  SERVICE         VERSION
+22/tcp   closed ssh
+80/tcp   open   http            nginx 1.21.1
+443/tcp  closed https
+3000/tcp closed ppp
+8080/tcp closed http-proxy
+8081/tcp closed blackice-icecap
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 8.43 seconds
+Starting Nmap 7.91 ( https://nmap.org ) at 2021-07-29 13:03 CDT
+Nmap scan report for ec2-54-242-56-0.compute-1.amazonaws.com (54.242.56.0)
+Host is up (0.043s latency).
+Not shown: 94 filtered ports
+PORT     STATE  SERVICE         VERSION
+22/tcp   closed ssh
+80/tcp   open   http            nginx 1.21.1
+443/tcp  closed https
+3000/tcp closed ppp
+8080/tcp closed http-proxy
+8081/tcp closed blackice-icecap
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 8.42 seconds
+Starting Nmap 7.91 ( https://nmap.org ) at 2021-07-29 13:03 CDT
+Nmap scan report for ec2-54-242-56-0.compute-1.amazonaws.com (54.242.56.0)
+Host is up (0.041s latency).
+Not shown: 94 filtered ports
+PORT     STATE  SERVICE         VERSION
+22/tcp   closed ssh
+80/tcp   open   http            nginx 1.21.1
+443/tcp  closed https
+3000/tcp closed ppp
+8080/tcp closed http-proxy
+8081/tcp closed blackice-icecap
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 8.45 seconds
+Starting Nmap 7.91 ( https://nmap.org ) at 2021-07-29 13:04 CDT
+Nmap scan report for ec2-54-242-56-0.compute-1.amazonaws.com (54.242.56.0)
+Host is up (0.041s latency).
+Not shown: 94 filtered ports
+PORT     STATE  SERVICE         VERSION
+22/tcp   closed ssh
+80/tcp   open   http            nginx 1.21.1
+443/tcp  closed https
+3000/tcp closed ppp
+8080/tcp closed http-proxy
+8081/tcp closed blackice-icecap
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 8.59 seconds
+Starting Nmap 7.91 ( https://nmap.org ) at 2021-07-29 13:07 CDT
+Nmap scan report for ec2-54-242-56-0.compute-1.amazonaws.com (54.242.56.0)
+Host is up (0.042s latency).
+Not shown: 94 filtered ports
+PORT     STATE  SERVICE         VERSION
+22/tcp   closed ssh
+80/tcp   open   http            nginx 1.21.1
+443/tcp  closed https
+3000/tcp closed ppp
+8080/tcp closed http-proxy
+8081/tcp closed blackice-icecap
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 8.50 seconds
+
+	Secure robots.txt

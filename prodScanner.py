@@ -2,6 +2,10 @@ from tld import get_tld
 import argparse
 import subprocess
 import ipcalc
+import re, requests
+from requests.exceptions import ConnectionError
+
+
 
 
 parser = argparse.ArgumentParser(description="Preform port and service scan on target(s)")
@@ -10,13 +14,31 @@ parser.add_argument('--cidr', type=int, help="network cidr")
 parser.add_argument('--intensity', type=int, help='scanning intensity 0 - 9')
 
 
+
+
+def test_insecure_robots_txt(data_list):
+
+   
+        for d in data_list:           
+            if re.fullmatch("(Disallow:[\n\s]*)", d):
+                return '\n\tInsecure robots.txt'
+            else:
+                  return '\n\tSecure robots.txt'
+                
+      
 def execute_command(cmd):
     result = subprocess.Popen(cmd,stdout=subprocess.PIPE,shell=True)     
-    output, _ = result.communicate()       
-    if type(output) == type('string'):
-        return output    
-    else:
-        return output.decode('utf-8')
+    try:
+        output, _ = result.communicate(timeout=8)       
+        if type(output) == type('string'):
+            print('executed command top')
+            print(output)
+            return output    
+        else:
+            print('executed command bottom')
+            return output.decode('utf-8')
+    except Exception as e:
+        print(e)
 
 
 def get_ip_range_from_cidr(network='0.0.0.0',cidr=24):
@@ -40,40 +62,98 @@ def fqdn_to_ip(fqdn='google.com'):
     return ip_addr  
 
 
-def write_data_to_directory(directory,data):    
-    with open(directory, 'w') as ink:
-        ink.write(data)    
+def write_data_to_directory(directory,nmap_data,robots_test_data):    
+    with open(directory, 'a') as ink:
+        ink.write(nmap_data) 
+        data_list = robots_test_data.splitlines()
+        test_result = test_insecure_robots_txt(data_list)
+        ink.write(test_result)
+
+def fetch_and_test_robots_txt(url,proto='http', directory='/'):
+    try:
+        res = requests.get(f"{proto}://{url}/robots.txt", verify=False, timeout=8)
+        cmd = f"curl --connect-timeout 4 {proto}://{url}/robots.txt"
+        result = execute_command(cmd) 
+        results = result.splitlines()
+        return test_insecure_robots_txt(results)
+
+        # if  res.status_code == 200:
+        #     results = res.text.splitlines()
+        #     return test_insecure_robots_txt(results)
+        # else:
+        #     results = res.text.splitlines()
+        #     return test_insecure_robots_txt(results)
+           
+
+    except Exception as e:
+        try:
+             fetch_and_test_robots_txt(url,proto='https')
+        except Exception as e:
+            print(e)
 
 def scan_target(intensity=0,target='google.com'):
     if 'http' in target:
         fqdn = format_domain_name(target)
+        print(target)
         target = fqdn_to_ip(fqdn)               
         #scans target retrieving port and application version
-        cmd = f"nmap -F -sV --version-intensity {intensity} {target}"        
-        result = execute_command(cmd)
-        write_data_to_directory(target,result)
-    else:
-        cmd = f"nmap -F -sV --version-intensity {intensity} {target}"
-        result = execute_command(cmd)
-        write_data_to_directory(target,result)
+        cmd = f"nmap --host-timeout 1m  -sV --version-intensity {intensity} {target}"
+        result = execute_command(cmd) #nmap results 
+        if "Note: Host seems down" in result:
+            return False
+        print(target)
         
+        test_results = fetch_and_test_robots_txt(url=target,directory=target)
+        
+        
+        write_data_to_directory(directory=target,nmap_data=result,robots_test_data=test_results)
+        return True
+        
+    else:
+        cmd = f"nmap --host-timeout 1m  -sV --version-intensity {intensity} {target}"
+        result = execute_command(cmd) #nmap results 
+        if "Note: Host seems down" in result:
+            return False
+        test_results = fetch_and_test_robots_txt(url=target,directory=target)
+        try:
+            write_data_to_directory(directory=target,nmap_data=result,robots_test_data=test_results)
+        except Exception as e:
+            print(e)
+        return True
+
   
 def init(network='54.242.56.0',cidr=30):     
     iplist = [ip.__str__() for ip in get_ip_range_from_cidr(network,cidr)]  #IP('x.x.x.x') use __str__() method to stringify object
      
-    for ip in iplist:
-        scan_target(target=ip)
+    # for ip in iplist:
+    #     print(ip)
+    #     scan_target(target=ip)
 
-init()
+    count = 0
+    while count < len(iplist):
+        print(iplist[count])
+        if False == scan_target(target=iplist[count]):
+            iplist.remove(iplist[count])
+            continue
+        count += 1
+
+
+
+
 
 if __name__ == '__main__':
     args = parser.parse_args()
     network = args.network if args.network != None else '0.0.0.0'
     cidr = args.cidr if args.cidr != None else '32'
+    print(network,cidr)
     init(network=network,cidr=cidr)
    
+
 #usage  python3  prodScanner.py --network  54.242.56.0 --cidr  32
 #network scan to evaluate open ports, services and applications 
 #elliott arnold 
 #practice 
 #7-28-21
+
+
+# nmap --host-timeout 1m -F -sV --version-intensity 0 54.242.56.1
