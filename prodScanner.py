@@ -76,15 +76,7 @@ def fetch_and_test_robots_txt(url,proto='http', directory='/'):
         result = execute_command(cmd) 
         results = result.splitlines()
         return test_insecure_robots_txt(results)
-
-        # if  res.status_code == 200:
-        #     results = res.text.splitlines()
-        #     return test_insecure_robots_txt(results)
-        # else:
-        #     results = res.text.splitlines()
-        #     return test_insecure_robots_txt(results)
-           
-
+       
     except Exception as e:
         try:
              fetch_and_test_robots_txt(url,proto='https')
