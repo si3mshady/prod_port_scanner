@@ -2,8 +2,8 @@ from tld import get_tld
 import argparse
 import subprocess
 import ipcalc
-import re, requests
-from requests.exceptions import ConnectionError
+import re
+# from requests.exceptions import ConnectionError
 
 
 
@@ -31,11 +31,11 @@ def execute_command(cmd):
     try:
         output, _ = result.communicate(timeout=16)       
         if type(output) == type('string'):
-            print('executed command top')
+          
             print(output)
             return output    
         else:
-            print('executed command bottom')
+            
             return output.decode('utf-8')
     except Exception as e:
         print(e)
@@ -71,7 +71,7 @@ def write_data_to_directory(directory,nmap_data,robots_test_data):
 
 def fetch_and_test_robots_txt(url,proto='http', directory='/'):
     try:
-        res = requests.get(f"{proto}://{url}/robots.txt", verify=False, timeout=8)
+        # res = requests.get(f"{proto}://{url}/robots.txt", verify=False, timeout=8)
         cmd = f"curl --connect-timeout 4 {proto}://{url}/robots.txt"
         result = execute_command(cmd) 
         results = result.splitlines()
@@ -115,7 +115,8 @@ def scan_target(intensity=0,target='google.com'):
 
   
 def init(network='54.242.56.0',cidr=30):     
-    iplist = [ip.__str__() for ip in get_ip_range_from_cidr(network,cidr)]  #IP('x.x.x.x') use __str__() method to stringify object
+    iplist = [ip.__str__() for ip in get_ip_range_from_cidr(network,cidr)]  
+    #IP('x.x.x.x') use __str__() method to stringify object
  
     count = 0
     while count < len(iplist):
@@ -139,7 +140,8 @@ if __name__ == '__main__':
 #network scan to evaluate open ports, services and applications 
 #elliott arnold 
 #practice 
-#7-28-21
+#7-29-21
 
 
 # nmap --host-timeout 1m -F -sV --version-intensity 0 54.242.56.1
+# docker run -v $(PWD):/app test --network  54.242.56.0 --cidr  32
