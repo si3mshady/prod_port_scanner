@@ -12,7 +12,7 @@ def execute_command(cmd):
         return output.decode('utf-8')
 
 
-def get_ip_range_from_cidr(network='10.10.0.0',cidr=24):
+def get_ip_range_from_cidr(network='0.0.0.0',cidr=24):
     if cidr <= 32 and cidr >= 8:
         ip_list =  [ip for ip in ipcalc.Network(f"{network}/{cidr}")]
         return ip_list
