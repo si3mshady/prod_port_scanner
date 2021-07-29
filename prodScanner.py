@@ -1,6 +1,13 @@
 from tld import get_tld
+import argparse
 import subprocess
 import ipcalc
+
+
+parser = argparse.ArgumentParser(description="Preform port and service scan on target(s)")
+parser.add_argument('--network', type=str , help='Network notation without CIDR')
+parser.add_argument('--cidr', type=int, help="network cidr")
+parser.add_argument('--intensity', type=int, help='scanning intensity 0 - 9')
 
 
 def execute_command(cmd):
@@ -33,12 +40,9 @@ def fqdn_to_ip(fqdn='google.com'):
     return ip_addr  
 
 
-def write_data_to_directory(directory,data):
-    
+def write_data_to_directory(directory,data):    
     with open(directory, 'w') as ink:
-        ink.write(data)
-
-    
+        ink.write(data)    
 
 def scan_target(intensity=0,target='google.com'):
     if 'http' in target:
@@ -54,10 +58,22 @@ def scan_target(intensity=0,target='google.com'):
         write_data_to_directory(target,result)
         
   
-def init(network='54.242.56.0',cidr=32):     
+def init(network='54.242.56.0',cidr=30):     
     iplist = [ip.__str__() for ip in get_ip_range_from_cidr(network,cidr)]  #IP('x.x.x.x') use __str__() method to stringify object
      
     for ip in iplist:
         scan_target(target=ip)
 
 init()
+
+if __name__ == '__main__':
+    args = parser.parse_args()
+    network = args.network if args.network != None else '0.0.0.0'
+    cidr = args.cidr if args.cidr != None else '32'
+    init(network=network,cidr=cidr)
+   
+#usage  python3  prodScanner.py --network  54.242.56.0 --cidr  32
+#network scan to evaluate open ports, services and applications 
+#elliott arnold 
+#practice 
+#7-28-21
